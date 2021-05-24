@@ -3,3 +3,7 @@
 import { myFunction } from './lib/index.js';
 
 myFunction();
+
+function cambioPantalla();
+let boton = document.getElementById("botonIngresar");
+boton.addEventListener("click", )
