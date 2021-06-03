@@ -1,23 +1,45 @@
-import { home } from "../../views/home.js"
+//import { home } from "../../views/home.js"
 
-const PATHS = {
-    ingreso: {
-        path: "/",
-        template: home(),
-    },
-    home: {
-        path: "#home",
-        template: `<h1>👩🏻‍💻 Sobre mi</h1>`,
-    },
-    perfil: {
-        path: "#perfil",
-        template: `<h1>📱 Contacto</h1>`,
-    }
+export const PATHS = {
+  ingreso: {
+    path: "/",
+    template: home(),
+  },
+  home: {
+    path: "#home",
+    template: `<h1>👩🏻‍💻 Sobre mi</h1>`,
+  },
+  perfil: {
+    path: "#perfil",
+    template: `<h1>📱 Contacto</h1>`,
+  }
 }
 
-export function router(path){
+export function router(path) {
 
 }
+
+function home() {
+  const homeHTML = `
+    <section id="home">
+    <header>
+      <img src="recursos/logoapp.png"> 
+    </header>
+
+    <section>
+      <input type="image" src="imagenes/home.png" class="btninicio">
+      <input type="image" src="imagenes/mensaje.png" class="btnmensaje">
+      <input type="image" src="imagenes/perfil.png" class="btnperfil">
+      <input type="image" src="imagenes/salir.png" class="btnsalir">
+    </section>
+
+    <a href="#/home"></a>
+    
+  </section>    
+    `
+  return homeHTML;
+}
+
 //  class Router {
 
 //     //constructor
@@ -32,7 +54,7 @@ export function router(path){
 //     } = window
 //     const URI = pathname === '/' ? 'home' : pathname.replace('/', '');
 // }
-    
+
 //     //metodo para cargar las vistas
 
 

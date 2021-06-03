@@ -1,5 +1,5 @@
-export function home(){
-    const homeHTML = `
+export function home() {
+  const homeHTML = `
     <section id="home">
     <header>
       <img src="recursos/logoapp.png"> 
@@ -16,6 +16,6 @@ export function home(){
     
   </section>    
     `
-    return homeHTML;
+  return homeHTML;
 }
 
