@@ -1,21 +1,21 @@
-import { home } from "./home.js"
+import { home } from "../../views/home.js"
 
 const PATHS = {
-    home: {
+    ingreso: {
         path: "/",
         template: home(),
     },
-    about: {
-        path: "/about",
+    home: {
+        path: "#home",
         template: `<h1>👩🏻‍💻 Sobre mi</h1>`,
     },
-    contact: {
-        path: "/contact",
+    perfil: {
+        path: "#perfil",
         template: `<h1>📱 Contacto</h1>`,
     }
 }
 
 export function router(path){
-    
+
 
 }
