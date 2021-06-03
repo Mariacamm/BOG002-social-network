@@ -1,6 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { router } from './router.js';
+import { Router } from './router.js';
 
 window.addEventListener("hashchange", function (e){console.log(e)})
 

@@ -1,21 +1,40 @@
-import { home } from "./home.js"
+/* class Router {
 
-const PATHS = {
-    home: {
-        path: "/",
-        template: home(),
-    },
-    about: {
-        path: "/about",
-        template: `<h1>👩🏻‍💻 Sobre mi</h1>`,
-    },
-    contact: {
-        path: "/contact",
-        template: `<h1>📱 Contacto</h1>`,
-    }
+    //constructor
+   constructor(paths){
+       let paths= paths
+   }
+
+    //metodo para inicializar el router
+iniRouter(){
+    const {
+        location: { pathname = '/'}
+    } = window
+    const URI = pathname === '/' ? 'home' : pathname.replace('/', '');
+}
+    
+    //metodo para cargar las vistas
+
+
+} */
+
+page('/', home)
+page('/inicio', inicio)
+page('/perfil', perfil)
+page('/mensaje', mensaje)
+
+function home () {
+    document.querySelector('p').textContent= 'Aqui esta el home'
 }
 
-export function router(path){
-    
+function inicio () {
+    document.querySelector('p').textContent= 'Aqui esta el inicio'
+}
 
+function perfil () {
+    document.querySelector('p').textContent= 'Aqui esta el perfil'
+}
+
+function mensaje () {
+    document.querySelector('p').textContent= 'Aqui esta el mensaje'
 }
