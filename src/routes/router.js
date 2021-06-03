@@ -7,11 +7,11 @@ const PATHS = {
     },
     home: {
         path: "#home",
-        template: `<h1>👩🏻‍💻 Sobre mi</h1>`,
+        template: ` `,
     },
     perfil: {
         path: "#perfil",
-        template: `<h1>📱 Contacto</h1>`,
+        template: ` `,
     }
 }
 
