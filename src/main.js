@@ -4,6 +4,8 @@
 import { PATHS } from "./routes/router.js"
 import { router } from "./routes/router.js"
 
+router(window.location.hash);
+
 window.addEventListener("hashchange", function (e) {
   // hacer algo llamar al router
   router(window.location.hash);
@@ -11,11 +13,11 @@ window.addEventListener("hashchange", function (e) {
 
 
 
-function cambioPantalla(){
-    document.getElementById("ingreso").style.display = "none";
-}
-let boton = document.getElementById("botonIngresar");
-boton.addEventListener("click", cambioPantalla);
+// function cambioPantalla(){
+//     document.getElementById("ingreso").style.display = "none";
+// }
+// let boton = document.getElementById("botonIngresar");
+// boton.addEventListener("click", cambioPantalla);
 
 // else ('#perfil' === path) {
 //     console.log('estas en perfil');
