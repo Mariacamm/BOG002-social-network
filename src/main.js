@@ -2,6 +2,7 @@
 
 //import { router } from './routes/router.js';
 import { PATHS } from "./routes/router.js"
+import { router } from "./routes/router.js"
 
 window.addEventListener("hashchange", function (e) {
   // hacer algo llamar al router
@@ -9,22 +10,13 @@ window.addEventListener("hashchange", function (e) {
 })
 
 
-function router(path) {
-  //console.log(path);
-  // evaluar path, preguntar que?
-  // si es home (path?) muestra home
-  // si es perfil mostrar perfil
-  if ('#home' === path) {
-    console.log('estas en home');
-    // mostrar home
-    const textHtml = PATHS.ingreso.template;
-    console.log(textHtml)
 
-  } else {
-    console.log('estas en otra ruta')
-  }
-
+function cambioPantalla(){
+    document.getElementById("ingreso").style.display = "none";
 }
-// function cambioPantalla();
-// let boton = document.getElementById("botonIngresar");
-// boton.addEventListener("click", )
+let boton = document.getElementById("botonIngresar");
+boton.addEventListener("click", cambioPantalla);
+
+// else ('#perfil' === path) {
+//     console.log('estas en perfil');
+//   const HTMLperfil = PATHS.perfil.template;  }

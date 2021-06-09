@@ -1,44 +1,47 @@
-//import { home } from "../../views/home.js"
+import { home } from "../../views/home.js"
+import { ingreso } from "../../views/ingreso.js"
+import { perfil } from "../../views/perfil.js"
 
 export const PATHS = {
   ingreso: {
-    path: "/",
-    template: home(),
+    path: "#",
+    template: ingreso(),
   },
   home: {
     path: "#home",
-    template: `<h1>👩🏻‍💻 Sobre mi</h1>`,
+    template: home(),
   },
   perfil: {
     path: "#perfil",
-    template: `<h1>📱 Contacto</h1>`,
+    template: perfil(),
   }
 }
 
 export function router(path) {
+    //console.log(path);
+    // evaluar path, preguntar que?
+    // si es home (path?) muestra home
+    // si es perfil mostrar perfil
+    if ('#home' === path) {
+      console.log('estas en home');
+      // mostrar home
+      const textHtml = PATHS.home.template;
+      console.log(textHtml)
+    }
+    else ("#perfil" === path);{
+      console.log('estas en perfil');
+      const HTMLperfil = PATHS.perfil.template;
+      console.log(HTMLperfil)
+    }
+    // if ("#" === path);{
+    //   console.log('estas en ingreso');
+    //   const HTMLingreso = PATHS.ingreso.template;
+    //   console.log(HTMLingreso)
+    // }
+  }
 
-}
 
-function home() {
-  const homeHTML = `
-    <section id="home">
-    <header>
-      <img src="recursos/logoapp.png"> 
-    </header>
 
-    <section>
-      <input type="image" src="imagenes/home.png" class="btninicio">
-      <input type="image" src="imagenes/mensaje.png" class="btnmensaje">
-      <input type="image" src="imagenes/perfil.png" class="btnperfil">
-      <input type="image" src="imagenes/salir.png" class="btnsalir">
-    </section>
-
-    <a href="#/home"></a>
-    
-  </section>    
-    `
-  return homeHTML;
-}
 
 //  class Router {
 

@@ -12,7 +12,6 @@ export function home() {
       <input type="image" src="imagenes/salir.png" class="btnsalir">
     </section>
 
-    <a href="#/home"></a>
     
   </section>    
     `
