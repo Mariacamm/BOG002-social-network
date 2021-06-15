@@ -12,10 +12,21 @@ export function ingreso (){
     <input type="text" placeholder="Ingresa tu nombre" id="input">
     <a href="#/ingreso"></a>
 
-    <button id="botonIngresar">Ingresar</button>
+    <button type="button" id="botonIngresar">Ingresar</button>
+    
   </div>
   </section>
     `
     return ingresoHTML;
 }
+
+// export function ingresoApp() {
+//   const btnIngreso = document.getElementById("botonIngresar");
+//   btnIngreso.addEventListener("click", () => {
+//     console.log("estamos probando")
+//     window.location = "#home";
+//     location.reload();
+//   });
+// }
+
 
