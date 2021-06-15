@@ -42,7 +42,10 @@ export function router(path) {
       console.log(HTMLingreso)
       document.getElementById("content").innerHTML = HTMLingreso;
     }
-  }
+}
+
+
+
 
 
 

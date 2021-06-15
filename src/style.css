@@ -7,7 +7,7 @@ top: 34px;
 background: rgb(250, 200, 199);
 border-radius: 94px;
 text-align: center;
-display: flexbox;
+display: block;
 align-items: center;
 }
 
