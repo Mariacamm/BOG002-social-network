@@ -12,6 +12,12 @@ export function home() {
       <input type="image" src="imagenes/salir.png" class="btnsalir">
     </section>
 
+    <section class=subida>
+    <div class="tarjeta"> 
+      <img id="imgPreview">
+      <input type="file" id="imgSubir">
+    </div>
+    </section>
     
   </section>    
     `
