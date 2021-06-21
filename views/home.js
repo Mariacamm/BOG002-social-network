@@ -14,6 +14,10 @@ export function home() {
 
     <section class=subida>
     <div class="tarjeta"> 
+    <article>
+    <p class="textoSubida">Sube tu imagen o video y muestra a la comunidad tu talento!!</p>
+    </article>
+    <form>
       <img id="imgPreview">
       <input type="file" id="imgSubir">
     </div>
