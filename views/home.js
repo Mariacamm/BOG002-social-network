@@ -28,19 +28,20 @@ export function home() {
   return homeHTML;
 }
 
-export function volverHome() {
-  const btnHome = document.getElementById("btninicio");
-  btnHome.addEventListener("click", () => {
-    window.location = "";
-    location.reload();
-  });
-}
+// export function volverHome() {
+//   const btnHome = document.getElementById("btninicio");
+//   btnHome.addEventListener("click", () => {
+//     window.location = "";
+//     location.reload();
+//   });
+// }
+// volverHome ()
 
-export function perfil() {
-  const btnPefil = document.getElementById("btnperfil");
-  btnIngreso.addEventListener("click", () => {
-    window.location = "#perfil";
-    location.reload();
-  });
-}
+// export function perfil() {
+//   const btnPefil = document.getElementById("btnperfil");
+//   btnIngreso.addEventListener("click", () => {
+//     window.location = "#perfil";
+//     location.reload();
+//   });
+// }
 
