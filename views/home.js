@@ -13,20 +13,65 @@ export function home() {
     </section>
 
     <section class=subida>
-    <div class="tarjeta"> 
-    <article>
-    <p class="textoSubida">Sube tu imagen o video y muestra a la comunidad tu talento!!</p>
-    </article>
-    <form>
-      <img id="imgPreview">
-      <input type="file" id="imgSubir">
+    <div class="tarjeta" id="tarjeta"> 
+      <div class="post">
+        <h1 class="textoSubida">Sube tu imagen o video y muestra a la comunidad tu talento!!</h1>
+          <div class="Formulario">
+            <form id="ingreso_post" class="ingreso_post">
+              <input type="text" id="descripcion_form" class="descripcion_form" placeholder="Descripcion">
+              <div class="bntGuardar">
+              <input type="submit" class="bntListo" value="listo">
+              </div>
+              <div class="file_img">
+              <input type="file" class="btnFile" id="btnFile">
+              </div>
+            </form>
+          </div>
+          <div class="post_finales">
+          
+          </div>
+
+      </div>
+    
     </div>
     </section>
     
   </section>    
     `
-  return homeHTML;
+return homeHTML;
 }
+
+class Descripcion{
+  constructor(descripcion,img){
+      this.descripcion= descripcion;
+      this.img= img;
+  }
+
+}
+
+class UI{
+  addDescripcion(){
+
+}
+
+  deleteDescripion(){
+
+  }
+  
+  showMessage(){
+
+  }
+
+}
+
+// enevtos del DOM
+
+
+document.getElementById("tarjeta").addEventListener('submit', function(){
+  alert("Enviando Formulario")
+})
+
+
 
 // export function volverHome() {
 //   const btnHome = document.getElementById("btninicio");
