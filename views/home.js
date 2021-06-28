@@ -36,18 +36,31 @@ export function home() {
 return homeHTML;
 }
 
-export function guardarPost (){
-  const publicacion = document.getElementById("publicacion");
-  const post = publicacion.value;
-  localStorage.setItem('publicacion3', "post")
-}
+// export function guardarPost (){
+//   const publicacion = document.getElementById("publicacion");
+//   const post = publicacion.value;
+//   const p = post.toString();
+  
+//   localStorage.setItem('publicacion5', post)
+// }
 
 export function subirPost (){
   const subirPost = document.getElementById("postear");
-  subirPost.addEventListener('click', guardarPost())
+  subirPost.addEventListener('click', () => {
+    const publicacion = document.getElementById("publicacion");
+    const post = publicacion.value;
+    localStorage.setItem('publicacion', post)
+    console.log("hola", post)
     document.getElementById("content").innerHTML = post;
-    console.log("hola")
-  }
+  })
+}
+
+export function pintarPost (){
+
+}
+    // document.getElementById("content").innerHTML = post;
+    
+  
 
 
 
