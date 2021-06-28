@@ -15,11 +15,11 @@ export function home() {
     <section class=subida>
     <div class="tarjeta"> 
     <article>
-    <p class="textoSubida">Sube tu imagen o video y muestra a la comunidad tu talento!!</p>
+    <p class="textoSubida">¡Sube tu imagen o video y muestra a la comunidad tu talento!</p>
     </article>
-    <form>
       <img id="imgPreview">
-      <input type="file" id="imgSubir">
+      <input type="text" id="pruebaLocal">
+      <button id="postear">Publicar</button>
     </div>
     </section>
     
@@ -28,6 +28,9 @@ export function home() {
   return homeHTML;
 }
 
+function subirPost (){
+  const postear = document.getElementById("postear");
+}
 // export function volverHome() {
 //   const btnHome = document.getElementById("btninicio");
 //   btnHome.addEventListener("click", () => {

@@ -1,6 +1,7 @@
 import { home } from "../../views/home.js"
 import { ingreso } from "../../views/ingreso.js"
 import { perfil } from "../../views/perfil.js"
+import { adelante } from "../main.js"
 
 export const PATHS = {
   ingreso: {
@@ -18,31 +19,35 @@ export const PATHS = {
 }
 
 export function router(path) {
-    console.log(path);
+    // console.log(path);
     // evaluar path, preguntar que?
     // si es home (path?) muestra home
     // si es perfil mostrar perfil
     if (path === "#home") {
-      console.log('estas en home');
+      // console.log('estas en home');
       // mostrar home
       const textHtml = PATHS.home.template;
-      console.log(textHtml)
+      // console.log(textHtml)
       document.getElementById("content").innerHTML = textHtml;
     //   document.getElementById("content").appendChild(textHtml);
     }
     else if (path === "#perfil"){
-      console.log('estas en perfil');
+      // console.log('estas en perfil');
       const HTMLperfil = PATHS.perfil.template;
-      console.log(HTMLperfil)
+      // console.log(HTMLperfil)
       document.getElementById("content").innerHTML = HTMLperfil;
     }
     else if (path === ""){
-      console.log('estas en ingreso');
+      // console.log('estas en ingreso');
       const HTMLingreso = PATHS.ingreso.template;
-      console.log(HTMLingreso)
+      // console.log(HTMLingreso)
       document.getElementById("content").innerHTML = HTMLingreso;
+      adelante();
     }
 }
+
+
+
 
 
 

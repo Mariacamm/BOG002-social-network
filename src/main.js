@@ -8,20 +8,33 @@ import { router } from "./routes/router.js"
 
 router(window.location.hash);
 
+// cambio de vistar con cambio de #
 window.addEventListener("hashchange", function (e) {
   // hacer algo llamar al router
   router(window.location.hash);
 })
 
-function adelante() {
+// hacer el cambio de vista
+export function adelante() {
   let siguientePagina = document.getElementById("botonIngresar");
   siguientePagina.addEventListener('click', () => {
-    console.log("yo tambien")
-    location.assign('http://127.0.0.1:5500/src/#home')
+    console.log("funciono")
+    window.location = "#home";
+    location.reload();
+    // location.assign('http://127.0.0.1:5500/src/#home')
   })
 }
-adelante()
 
+
+// subir imagen
+// const imgPreview = document.getElementById("imgPreview");
+// const imgSubir = document.getElementById("imgSubir")
+
+// imgSubir.addEventListener('change', (e) => {
+//   console.log(e)
+//   const file = e.target.files[0]
+
+// })
 
 
 // function cambioPantalla(){
