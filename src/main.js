@@ -26,6 +26,8 @@ export function adelante() {
 }
 
 
+
+
 // subir imagen
 // const imgPreview = document.getElementById("imgPreview");
 // const imgSubir = document.getElementById("imgSubir")

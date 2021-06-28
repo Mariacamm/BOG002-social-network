@@ -15,16 +15,11 @@ export function home() {
     <section class=subida>
     <div class="tarjeta" id="tarjeta"> 
       <div class="post">
-        <h1 class="textoSubida">Sube tu imagen o video y muestra a la comunidad tu talento!!</h1>
+        <h1 class="textoSubida">¡Sube tu imagen o video y muestra a la comunidad tu talento!</h1>
           <div class="Formulario">
             <form id="ingreso_post" class="ingreso_post">
-              <input type="text" id="descripcion_form" class="descripcion_form" placeholder="Descripcion">
-              <div class="bntGuardar">
-              <input type="submit" class="bntListo" value="listo">
-              </div>
-              <div class="file_img">
-              <input type="file" class="btnFile" id="btnFile">
-              </div>
+              <input type="text" id="publicacion" class="descripcion_form" placeholder="¿Qué estás pensando?">
+              <button type="button" id="postear">Guardar</button>
             </form>
           </div>
           <div class="post_finales">
@@ -41,38 +36,53 @@ export function home() {
 return homeHTML;
 }
 
-class Descripcion{
-  constructor(descripcion,img){
-      this.descripcion= descripcion;
-      this.img= img;
-  }
-
+export function guardarPost (){
+  const publicacion = document.getElementById("publicacion");
+  const post = publicacion.value;
+  localStorage.setItem('publicacion3', "post")
 }
 
-class UI{
-  addDescripcion(){
-
-}
-
-  deleteDescripion(){
-
+export function subirPost (){
+  const subirPost = document.getElementById("postear");
+  subirPost.addEventListener('click', guardarPost())
+    document.getElementById("content").innerHTML = post;
+    console.log("hola")
   }
+
+
+
+
+
+// class Descripcion{
+//   constructor(descripcion,img){
+//       this.descripcion= descripcion;
+//       this.img= img;
+//   }
+
+// }
+
+// class UI{
+//   addDescripcion(){
+
+// }
+
+//   deleteDescripion(){
+
+//   }
   
-  showMessage(){
+//   showMessage(){
 
-  }
+//   }
 
-}
+// }
 
-function subirPost (){
-  const postear = document.getElementById("postear");
-}
+
 // enevtos del DOM
 
 
-document.getElementById("tarjeta").addEventListener('submit', function(){
-  alert("Enviando Formulario")
-})
+// document.getElementById("tarjeta").addEventListener('submit', function(){
+//   alert("Enviando Formulario")
+// })
 
 
 
