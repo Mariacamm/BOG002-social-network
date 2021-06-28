@@ -15,20 +15,16 @@ export function home() {
     <section class=subida>
     <div class="tarjeta" id="tarjeta"> 
       <div class="post">
-        <h1 class="textoSubida">Sube tu imagen o video y muestra a la comunidad tu talento!!</h1>
+        <h1 class="textoSubida">¡Sube tu imagen o video y muestra a la comunidad tu talento!</h1>
           <div class="Formulario">
             <form id="ingreso_post" class="ingreso_post">
-              <input type="text" id="descripcion_form" class="descripcion_form" placeholder="Descripcion">
-              <div class="bntGuardar">
-              <input type="submit" class="bntListo" value="listo">
-              </div>
-              <div class="file_img">
-              <input type="file" class="btnFile" id="btnFile">
-              </div>
+              <input type="text" id="publicacion" class="descripcion_form" placeholder="¿Qué estás pensando?">
+              <button type="button" id="postear">Guardar</button>
             </form>
           </div>
-          <div class="post_finales">
-          
+          <div class="postFinales" id="postFinales">
+            <textarea class="postFinal" id="postFinal"></textarea>
+            <button type="button" id="eliminar">Eliminar</button>
           </div>
 
       </div>
@@ -41,26 +37,80 @@ export function home() {
 return homeHTML;
 }
 
+// export function guardarPost (){
+//   const publicacion = document.getElementById("publicacion");
+//   const post = publicacion.value;
+//   const p = post.toString();
+  
+//   localStorage.setItem('publicacion5', post)
+// }
 
-function subirPost (){
-  const postear = document.getElementById("postear");
+export function subirPost (){
+  const subirPost = document.getElementById("postear");
+  subirPost.addEventListener('click', () => {
+    const publicacion = document.getElementById("publicacion");
+    const post = publicacion.value;
+    localStorage.setItem('publicacion', post)
+    console.log("hola", post)
+    document.getElementById("postFinal").innerHTML = post;
+  })
 }
 
-/* // enevtos del DOM
+export function eliminarPost (){
+  const eliminarPost = document.getElementById("eliminar");
+  eliminarPost.addEventListener('click', () => {
+    const postFinal = document.getElementById("postFinal");
+    const eliminar = postFinal.value;
+    localStorage.clear('postFinal', eliminar)
+    /* alert("elimindado") */
+    /* console.log("hola", post) */
+    /* document.getElementById("content").innerHTML = post; */
+  })
+}
+
+export function pintarPost (){}
+
+    // document.getElementById("content").innerHTML = post;
+    
+  
 
 
-document.getElementById("ingreso_post").addEventListener('submit', function(e){
-  const descripcion = document.getElementById("descripcion_form").value;
-  const btnFile = document.getElementById("btnFile").value;
 
-  const post= new Post(descripcion, btnFile);
 
-  const ui = new UI();
+
+// class Descripcion{
+//   constructor(descripcion,img){
+//       this.descripcion= descripcion;
+//       this.img= img;
+//   }
+
+// }
+
+// class UI{
+//   addDescripcion(){
+
+// }
+
+//   deleteDescripion(){
+
+//   }
+  
+//   showMessage(){
+
+//   }
+
+// }
+
+
+// enevtos del DOM
+
+/*   const ui = new UI();
   ui.addDescripcion(descripcion);
-  ui.resetForm();
+  ui.resetForm(); */
 
-  e.preventDefault();
-}) */
+// document.getElementById("tarjeta").addEventListener('submit', function(){
+//   alert("Enviando Formulario")
+// })
 
 
 
@@ -79,5 +129,4 @@ document.getElementById("ingreso_post").addEventListener('submit', function(e){
 //     window.location = "#perfil";
 //     location.reload();
 //   });
-// }
-
+// 

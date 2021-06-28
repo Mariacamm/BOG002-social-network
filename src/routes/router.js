@@ -1,7 +1,8 @@
-import { home } from "../../views/home.js"
+import { eliminarPost, home } from "../../views/home.js"
 import { ingreso } from "../../views/ingreso.js"
 import { perfil } from "../../views/perfil.js"
 import { adelante } from "../main.js"
+import { subirPost } from "../../views/home.js"
 
 export const PATHS = {
   ingreso: {
@@ -29,6 +30,8 @@ export function router(path) {
       const textHtml = PATHS.home.template;
       // console.log(textHtml)
       document.getElementById("content").innerHTML = textHtml;
+      subirPost();
+      eliminarPost();
     //   document.getElementById("content").appendChild(textHtml);
     
     }

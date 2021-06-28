@@ -131,7 +131,7 @@
     width: auto;
 }
 
-.btnFile{
+#postear{
     border: none;
     padding: 1.3%;
     background: #FFAAA7;
@@ -141,4 +141,24 @@
     color: #000000;
     box-shadow: 2px 5px 7px rgb(117, 116, 116); 
     justify-content: space-between;
+}
+
+#postFinal{
+    height: auto;
+    width: auto;
+    padding: 5%;
+    border: 3px solid black;
+    border-radius: 30px;
+}
+
+#eliminar {
+    position: relative;
+    border: none;
+    padding: 1.3%;
+    background: #FFAAA7;
+    border-radius: 23px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    color: #000000;
 }

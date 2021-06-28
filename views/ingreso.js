@@ -10,7 +10,10 @@ export function ingreso (){
     </article>
 
     <input type="text" placeholder="Ingresa tu nombre" id="input">
+
     <a href="#/ingreso"></a>
+
+    <div id="prueba"></div>
 
     <button type="button" id="botonIngresar">Ingresar</button>
     
@@ -19,6 +22,16 @@ export function ingreso (){
     `
     return ingresoHTML;
 }
+
+function guardarNombre() {
+  let nombre = document.getElementById("input");
+  let nombreUsuario = nombre.value;
+  localStorage.setItem('nombre', nombreUsuario);
+  console.log(nombreUsuario)
+  // document.getElementById("prueba").innerHTML = nombre;
+}
+
+
 
 // export function ingresoApp() {
 //   const btnIngreso = document.getElementById("botonIngresar");
