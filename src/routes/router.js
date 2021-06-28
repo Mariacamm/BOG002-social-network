@@ -30,6 +30,7 @@ export function router(path) {
       // console.log(textHtml)
       document.getElementById("content").innerHTML = textHtml;
     //   document.getElementById("content").appendChild(textHtml);
+    
     }
     else if (path === "#perfil"){
       // console.log('estas en perfil');

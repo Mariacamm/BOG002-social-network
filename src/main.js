@@ -7,6 +7,7 @@ import { router } from "./routes/router.js"
 
 
 router(window.location.hash);
+/* home(window.location.hash); */
 
 // cambio de vistar con cambio de #
 window.addEventListener("hashchange", function (e) {
@@ -24,6 +25,7 @@ export function adelante() {
     // location.assign('http://127.0.0.1:5500/src/#home')
   })
 }
+
 
 
 // subir imagen

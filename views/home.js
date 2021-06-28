@@ -41,38 +41,26 @@ export function home() {
 return homeHTML;
 }
 
-class Descripcion{
-  constructor(descripcion,img){
-      this.descripcion= descripcion;
-      this.img= img;
-  }
-
-}
-
-class UI{
-  addDescripcion(){
-
-}
-
-  deleteDescripion(){
-
-  }
-  
-  showMessage(){
-
-  }
-
-}
 
 function subirPost (){
   const postear = document.getElementById("postear");
 }
-// enevtos del DOM
+
+/* // enevtos del DOM
 
 
-document.getElementById("tarjeta").addEventListener('submit', function(){
-  alert("Enviando Formulario")
-})
+document.getElementById("ingreso_post").addEventListener('submit', function(e){
+  const descripcion = document.getElementById("descripcion_form").value;
+  const btnFile = document.getElementById("btnFile").value;
+
+  const post= new Post(descripcion, btnFile);
+
+  const ui = new UI();
+  ui.addDescripcion(descripcion);
+  ui.resetForm();
+
+  e.preventDefault();
+}) */
 
 
 
