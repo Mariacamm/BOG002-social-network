@@ -24,6 +24,8 @@ export function home() {
           </div>
           <div class="postFinales" id="postFinales">
             <textarea class="postFinal" id="postFinal"></textarea>
+            <input type="image" src="imagenes/likes.png" id="btnlikes">
+            <h2 id="contadorLikes"></h2>
             <button type="button" id="eliminar">Eliminar</button>
           </div>
 
@@ -62,15 +64,29 @@ export function eliminarPost (){
     const postFinal = document.getElementById("postFinal");
     const eliminar = postFinal.value;
     localStorage.clear('postFinal', eliminar)
+    document.getElementById("postFinal").innerHTML = "";
     /* alert("elimindado") */
-    /* console.log("hola", post) */
     /* document.getElementById("content").innerHTML = post; */
   })
 }
 
-export function pintarPost (){}
+// evento likes 
 
-    // document.getElementById("content").innerHTML = post;
+export function likePost () {
+const btnLikes= document.getElementById("btnLikes")
+const contadorLikes= document.getElementById("contadorLikes")
+
+if (localStorage.getItem('contador')){
+  contadorLikes.innerText= localStorage.getItem('contador')
+} else {
+  localStorage.setItem('contador' , '0')
+}
+  btnLikes.onclick = () => {
+  const contadorActual= localStorage.getItem('contador')
+  localStorage.setItem('contador', parseInt(contadorActual) + 1)
+  contadorLikes.innerText= localStorage.getItem('contador')
+}}
+
     
   
 
