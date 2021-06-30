@@ -167,3 +167,43 @@
     width: 5%;
     height: 5%;
 }
+
+.tarjeta {
+    background: rgba(0, 0, 0,.5);
+    position: fixed;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+  }
+  
+  .tarjeta.active {
+    visibility: visible;
+  }
+  
+  .post{
+    background: white;
+    box-shadow: 0px 0px 5px 0px black;
+    border-radius: 5px;
+    font-family: Aldrich;
+    font-size: 20px;
+    padding: 20px;
+    text-align: justify;
+    width: 500px;
+  }
+
+  .post.postear{
+    position: relative;
+    border: none;
+    padding: 1.3%;
+    background: #FFAAA7;
+    border-radius: 23px;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    color: #000000;
+  }

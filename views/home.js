@@ -6,6 +6,7 @@ export function home() {
     </header>
 
     <section>
+      <input type="image" src="imagenes/newPost.png" id="btnnewPost">
       <input type="image" src="imagenes/home.png" id="btninicio">
       <input type="image" src="imagenes/mensaje.png" class="btnmensaje">
       <input type="image" src="imagenes/perfil.png" class="btnPerfil">
@@ -14,24 +15,23 @@ export function home() {
 
     <section class=subida>
     <div class="tarjeta" id="tarjeta"> 
-      <div class="post">
+      <div class="post" id="post">
         <h1 class="textoSubida">¡Sube tu imagen o video y muestra a la comunidad tu talento!</h1>
           <div class="Formulario">
             <form id="ingreso_post" class="ingreso_post">
               <input type="text" id="publicacion" class="descripcion_form" placeholder="¿Qué estás pensando?">
-              <button type="button" id="postear">Guardar</button>
+              <button type="button" class="postear" id="postear">Guardar</button>
             </form>
           </div>
-          <div class="postFinales" id="postFinales">
-            <textarea class="postFinal" id="postFinal"></textarea>
-            <input type="image" src="imagenes/likes.png" id="btnlikes">
-            <h2 id="contadorLikes"></h2>
-            <button type="button" id="eliminar">Eliminar</button>
-          </div>
-
       </div>
-    
     </div>
+
+    <div class="postFinales" id="postFinales">
+    <textarea class="postFinal" id="postFinal"></textarea>
+    <input type="image" src="imagenes/likes.png" id="btnlikes">
+    <h2 id="contadorLikes"></h2>
+    <button type="button" id="eliminar">Eliminar</button>
+  </div>
     </section>
     
   </section>    
@@ -87,6 +87,24 @@ if (localStorage.getItem('contador')){
   contadorLikes.innerText= localStorage.getItem('contador')
 }}
 
+// Pop UP
+
+export function popUpPost () {
+
+const popUpPost = document.getElementById("btnnewPost"),
+  tarjeta= document.getElementById("tarjeta"),
+  postPop = document.getElementById("post"),
+  guardar = document.getElementById("postear");
+
+popUpPost.addEventListener("click", function(){
+  tarjeta.classList.add('active');
+  postPop.classList.add('active');
+})
+
+guardar.addEventListener("click", function(){
+  tarjeta.classList.remove('active');
+  postPop.classList.remove('active');
+})}
     
   
 
