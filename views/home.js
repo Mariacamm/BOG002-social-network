@@ -13,7 +13,7 @@ export function home() {
       <input type="image" src="imagenes/salir.png" class="btnsalir">
     </section>
 
-    <section class=subida>
+    <section class="subida">
     <div class="tarjeta" id="tarjeta"> 
       <div class="post" id="post">
         <h1 class="textoSubida">¡Sube tu imagen o video y muestra a la comunidad tu talento!</h1>
@@ -73,38 +73,41 @@ export function eliminarPost (){
 // evento likes 
 
 export function likePost () {
-const btnLikes= document.getElementById("btnLikes")
-const contadorLikes= document.getElementById("contadorLikes")
+  const btnLikes= document.getElementById("btnlikes")
+  const contadorLikes= document.getElementById("contadorLikes")
 
-if (localStorage.getItem('contador')){
-  contadorLikes.innerText= localStorage.getItem('contador')
-} else {
-  localStorage.setItem('contador' , '0')
+  if (localStorage.getItem('contador')){
+    contadorLikes.innerText= localStorage.getItem('contador')
+  } else {
+    localStorage.setItem('contador' , '0')
+  }
+    btnLikes.onclick = () => {
+    console.log("Hola")
+    const contadorActual= localStorage.getItem('contador')
+    localStorage.setItem('contador', parseInt(contadorActual) + 1)
+    contadorLikes.innerText= localStorage.getItem('contador')
+  }
 }
-  btnLikes.onclick = () => {
-  const contadorActual= localStorage.getItem('contador')
-  localStorage.setItem('contador', parseInt(contadorActual) + 1)
-  contadorLikes.innerText= localStorage.getItem('contador')
-}}
 
 // Pop UP
 
 export function popUpPost () {
 
-const popUpPost = document.getElementById("btnnewPost"),
+  const popUpPost = document.getElementById("btnnewPost"),
   tarjeta= document.getElementById("tarjeta"),
   postPop = document.getElementById("post"),
   guardar = document.getElementById("postear");
+  console.log(popUpPost)
+  popUpPost.addEventListener("click", function(){
+    tarjeta.classList.add('active');
+    postPop.classList.add('active');
+  })
 
-popUpPost.addEventListener("click", function(){
-  tarjeta.classList.add('active');
-  postPop.classList.add('active');
-})
-
-guardar.addEventListener("click", function(){
-  tarjeta.classList.remove('active');
-  postPop.classList.remove('active');
-})}
+  guardar.addEventListener("click", function(){
+    tarjeta.classList.remove('active');
+    postPop.classList.remove('active');
+  })
+}
     
   
 

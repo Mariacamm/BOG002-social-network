@@ -29,10 +29,14 @@ export function router(path) {
       const textHtml = PATHS.home.template;
       // console.log(textHtml)
       document.getElementById("content").innerHTML = textHtml;
-      subirPost();
-      eliminarPost();
-      likePost();
-      popUpPost();
+      /* setTimeout(()=>{ */
+        subirPost();
+        eliminarPost();
+        likePost();
+        popUpPost();
+     /*  },500) */
+      
+      /* popUpPost(); */
     //   document.getElementById("content").appendChild(textHtml);
     
     }
