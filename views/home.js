@@ -27,10 +27,7 @@ export function home() {
     </div>
 
     <div id="pruebaPost">
-    <textarea class="postFinal" id="postFinal"></textarea>
-    <input type="image" src="imagenes/likes.png" id="btnlikes">
-    <h2 id="contadorLikes"></h2>
-    <button type="button" id="eliminar">Eliminar</button>
+       
   </div>
     </section>
     
@@ -54,29 +51,53 @@ export function subirPost (){
 }
 
 export function pintarPost(){
-  const post = document.getElementById("postFinal")
-  post.innerHTML = "POST:" + ""
+  const post = document.getElementById("pruebaPost")
+  post.innerHTML = "TIMELINE:" + ""
    let obtenerPost = localStorage.getItem('publicaciones')
    let obtenerPostString = JSON.parse(obtenerPost)
-   document.getElementById("postFinal").innerHTML = obtenerPostString;
-  //  obtenerPostString.forEach((p) => {
+  //  document.getElementById("postFinal").innerHTML = obtenerPostString;
+   obtenerPostString.forEach((p) => {
 
-  //   console.log(p);
+    // console.log(p);
  
-  //   const publicacion = document.createElement('div');
-  //   publicacion.innerHTML = obtenerPostString;
-  //  })
+    let contenido = document.createElement('div');
+    contenido.className = "contenido";
+    
+    let boton = document.createElement('button');
+    boton.className = "eliminar";
+    boton.innerHTML = "click";
+    contenido.appendChild(boton)
+
+    let texto = document.createElement('p');
+    texto.className = "postFinal";
+    texto.innerHTML = obtenerPostString;
+    contenido.appendChild(texto)
+
+    let likes = document.createElement('input');
+    likes.setAttribute("type", "image");
+    likes.src = 'imagenes/likes.png';
+    likes.className = "btnlikes";
+    contenido.appendChild(likes)
+
+    let contador = document.createElement('p');
+    contador.className = "contadorLikes";
+    contenido.appendChild(contador)
+    
+    post.appendChild(contenido);
+    
+   })
   // console.log(obtenerPostString[2])
-  
+  eliminarPost();
+  likePost();
 }
 
 export function eliminarPost (){
-  const eliminarPost = document.getElementById("eliminar");
+  const eliminarPost = document.querySelector(".eliminar");
   eliminarPost.addEventListener('click', () => {
-    const postFinal = document.getElementById("postFinal");
+    const postFinal = document.querySelector(".contenido");
     const eliminar = postFinal.value;
-    localStorage.clear('postFinal', eliminar)
-    document.getElementById("postFinal").innerHTML = "";
+    localStorage.clear('contenido', eliminar)
+    document.querySelector(".contenido").innerHTML = "";
     /* alert("elimindado") */
     /* document.getElementById("content").innerHTML = post; */
   })
@@ -85,20 +106,20 @@ export function eliminarPost (){
 // evento likes 
 
 export function likePost () {
-  const btnLikes= document.getElementById("btnlikes")
-  const contadorLikes= document.getElementById("contadorLikes")
+  const btnLikes= document.querySelector(".btnlikes")
+  const contadorLikes= document.querySelector(".contadorLikes")
 
   if (localStorage.getItem('contador')){
     contadorLikes.innerText= localStorage.getItem('contador')
   } else {
     localStorage.setItem('contador' , '0')
   }
-    btnLikes.onclick = () => {
+  btnLikes.addEventListener('click', () => {
     // console.log("Hola")
     const contadorActual= localStorage.getItem('contador')
     localStorage.setItem('contador', parseInt(contadorActual) + 1)
     contadorLikes.innerText= localStorage.getItem('contador')
-  }
+  })
 }
 
 // Pop UP
