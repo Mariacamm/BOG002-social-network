@@ -26,7 +26,7 @@ export function home() {
       </div>
     </div>
 
-    <div class="postFinales" id="postFinales">
+    <div id="pruebaPost">
     <textarea class="postFinal" id="postFinal"></textarea>
     <input type="image" src="imagenes/likes.png" id="btnlikes">
     <h2 id="contadorLikes"></h2>
@@ -39,23 +39,35 @@ export function home() {
 return homeHTML;
 }
 
-// export function guardarPost (){
-//   const publicacion = document.getElementById("publicacion");
-//   const post = publicacion.value;
-//   const p = post.toString();
-  
-//   localStorage.setItem('publicacion5', post)
-// }
 
+const arrayPost = []
 export function subirPost (){
   const subirPost = document.getElementById("postear");
   subirPost.addEventListener('click', () => {
-    const publicacion = document.getElementById("publicacion");
-    const post = publicacion.value;
-    localStorage.setItem('publicacion', post)
-    console.log("hola", post)
-    document.getElementById("postFinal").innerHTML = post;
+    const publicacion = document.getElementById("publicacion").value;
+    // const post = publicacion.value;
+    arrayPost.push(publicacion)
+    localStorage.setItem('publicaciones', JSON.stringify(arrayPost))
+    // console.log("hola", publicacion)    
+    pintarPost();
   })
+}
+
+export function pintarPost(){
+  const post = document.getElementById("postFinal")
+  post.innerHTML = "POST:" + ""
+   let obtenerPost = localStorage.getItem('publicaciones')
+   let obtenerPostString = JSON.parse(obtenerPost)
+   document.getElementById("postFinal").innerHTML = obtenerPostString;
+  //  obtenerPostString.forEach((p) => {
+
+  //   console.log(p);
+ 
+  //   const publicacion = document.createElement('div');
+  //   publicacion.innerHTML = obtenerPostString;
+  //  })
+  // console.log(obtenerPostString[2])
+  
 }
 
 export function eliminarPost (){
@@ -82,7 +94,7 @@ export function likePost () {
     localStorage.setItem('contador' , '0')
   }
     btnLikes.onclick = () => {
-    console.log("Hola")
+    // console.log("Hola")
     const contadorActual= localStorage.getItem('contador')
     localStorage.setItem('contador', parseInt(contadorActual) + 1)
     contadorLikes.innerText= localStorage.getItem('contador')
@@ -94,10 +106,10 @@ export function likePost () {
 export function popUpPost () {
 
   const popUpPost = document.getElementById("btnnewPost"),
-  tarjeta= document.getElementById("tarjeta"),
+  tarjeta = document.getElementById("tarjeta"),
   postPop = document.getElementById("post"),
   guardar = document.getElementById("postear");
-  console.log(popUpPost)
+  // console.log(popUpPost)
   popUpPost.addEventListener("click", function(){
     tarjeta.classList.add('active');
     postPop.classList.add('active');
@@ -113,6 +125,12 @@ export function popUpPost () {
 
 
 
+{/* <div class="postFinales" id="postFinales">
+<textarea class="postFinal" id="postFinal"></textarea>
+<input type="image" src="imagenes/likes.png" id="btnlikes">
+<h2 id="contadorLikes"></h2>
+<button type="button" id="eliminar">Eliminar</button>
+</div> */}
 
 
 // class Descripcion{

@@ -166,6 +166,7 @@
 #btnlikes {
     width: 5%;
     height: 5%;
+    /* background-image: url("imagenes/likes.png"); */
 }
 
 .tarjeta {
