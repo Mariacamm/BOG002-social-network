@@ -43,8 +43,8 @@ export function subirPost (){
   subirPost.addEventListener('click', () => {
     const publicacion = document.getElementById("publicacion").value;
     // const post = publicacion.value;
-    arrayPost.push(publicacion)
-    localStorage.setItem('publicaciones', JSON.stringify(arrayPost))
+    arrayPost.push(publicacion);
+    localStorage.setItem('publicaciones', JSON.stringify(arrayPost));
     // console.log("hola", publicacion)    
     pintarPost();
   })
@@ -62,16 +62,16 @@ export function pintarPost(){
  
     let contenido = document.createElement('div');
     contenido.className = "contenido";
-    
-    let boton = document.createElement('button');
-    boton.className = "eliminar";
-    boton.innerHTML = "click";
-    contenido.appendChild(boton)
 
     let texto = document.createElement('p');
     texto.className = "postFinal";
-    texto.innerHTML = obtenerPostString;
+    texto.innerHTML = (p);
     contenido.appendChild(texto)
+
+    let boton = document.createElement('button');
+    boton.className = "eliminar";
+    boton.innerHTML = "eliminar";
+    contenido.appendChild(boton)
 
     let likes = document.createElement('input');
     likes.setAttribute("type", "image");
@@ -89,19 +89,40 @@ export function pintarPost(){
   // console.log(obtenerPostString[2])
   eliminarPost();
   likePost();
+  
 }
 
+// export function eliminarPost (){
+//   const eliminarPost = document.querySelector(".eliminar");
+//   eliminarPost.addEventListener('click', () => {
+//     const postFinal = document.querySelector(".contenido");
+//     const eliminar = postFinal.value;
+//     localStorage.removeItem('publicaciones')
+//     document.querySelector(".contenido").innerHTML = "";
+//     /* alert("elimindado") */
+//     /* document.getElementById("content").innerHTML = post; */
+//   })
+// }
+
+
 export function eliminarPost (){
-  const eliminarPost = document.querySelector(".eliminar");
-  eliminarPost.addEventListener('click', () => {
-    const postFinal = document.querySelector(".contenido");
-    const eliminar = postFinal.value;
-    localStorage.clear('contenido', eliminar)
-    document.querySelector(".contenido").innerHTML = "";
-    /* alert("elimindado") */
-    /* document.getElementById("content").innerHTML = post; */
-  })
-}
+    const eliminarPost = document.querySelector(".eliminar");
+    eliminarPost.addEventListener('click', () => {
+      // const postFinal = document.querySelector(".contenido").value;
+      let obtenerPost = localStorage.getItem('publicaciones');
+      let postArray = JSON.parse(obtenerPost);
+      let filtroP = postArray.filter((item, index)=>{
+        return postArray.indexOf(item) === index;
+      })
+      // localStorage.setItem('publicaciones', filtroP)
+      // localStorage.removeItem('publicaciones')
+      console.log(filtroP)
+      
+      document.querySelector(".contenido").innerHTML = "";
+      /* alert("elimindado") */
+      /* document.getElementById("content").innerHTML = post; */
+    })
+  }
 
 // evento likes 
 
