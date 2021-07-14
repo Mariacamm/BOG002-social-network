@@ -92,6 +92,13 @@ export function pintarPost(){
     contador.className = "contadorLikes";
     contenido.appendChild(contador);
     contador.innerHTML = localStorage.getItem('contador');
+    likes.addEventListener('click', () => {
+      // console.log("Hola")
+      const contadorActual= localStorage.getItem('contador')
+      localStorage.setItem('contador', parseInt(contadorActual) + 1)
+      localStorage.setItem('contadorActual', JSON.stringify(likes));
+      likePost();
+    })
     
     post.appendChild(contenido);
 
@@ -101,7 +108,7 @@ export function pintarPost(){
    })
   // console.log(obtenerPostString[2])
   /* eliminarPost(); */
-  likePost();
+  /* likePost(); */
   
 }
 
@@ -153,6 +160,9 @@ export function likePost () {
     const contadorActual= localStorage.getItem('contador')
     localStorage.setItem('contador', parseInt(contadorActual) + 1)
     contadorLikes.innerText= localStorage.getItem('contador')
+    btnLikes.push({id:btnLikes.length+1,p});
+    localStorage.setItem('contadorLikes', JSON.stringify(btnLikes));
+    likePost();
   })
 }
 
