@@ -43,7 +43,7 @@ export function subirPost (){
   subirPost.addEventListener('click', () => {
     const publicacion = document.getElementById("publicacion").value;
     // const post = publicacion.value;
-    arrayPost.push(publicacion);
+    arrayPost.push({id:arrayPost.length+1,publicacion});
     localStorage.setItem('publicaciones', JSON.stringify(arrayPost));
     // console.log("hola", publicacion)    
     pintarPost();
@@ -65,29 +65,42 @@ export function pintarPost(){
 
     let texto = document.createElement('p');
     texto.className = "postFinal";
-    texto.innerHTML = (p);
+    texto.innerHTML = p.publicacion;
     contenido.appendChild(texto)
 
     let boton = document.createElement('button');
     boton.className = "eliminar";
     boton.innerHTML = "eliminar";
     contenido.appendChild(boton)
+    boton.addEventListener('click', () => {
+      let obtenerPost = localStorage.getItem('publicaciones');
+      let postArray = JSON.parse(obtenerPost);
+      let filtroP = postArray.filter((item)=>
+        item.id!==p.id
+      )
+      localStorage.setItem('publicaciones', JSON.stringify(filtroP));
+      pintarPost()
+    })
 
     let likes = document.createElement('input');
     likes.setAttribute("type", "image");
     likes.src = 'imagenes/likes.png';
     likes.className = "btnlikes";
-    contenido.appendChild(likes)
+    contenido.appendChild(likes);
 
     let contador = document.createElement('p');
     contador.className = "contadorLikes";
-    contenido.appendChild(contador)
+    contenido.appendChild(contador);
+    contador.innerHTML = localStorage.getItem('contador');
     
     post.appendChild(contenido);
-    
+
+    /* eliminarPost();
+    likePost(); */
+  
    })
   // console.log(obtenerPostString[2])
-  eliminarPost();
+  /* eliminarPost(); */
   likePost();
   
 }
@@ -114,8 +127,8 @@ export function eliminarPost (){
       let filtroP = postArray.filter((item, index)=>{
         return postArray.indexOf(item) === index;
       })
-      // localStorage.setItem('publicaciones', filtroP)
-      // localStorage.removeItem('publicaciones')
+      /* localStorage.getItem('publicaciones', filtroP) */
+      /* localStorage.clear('publicaciones') */
       console.log(filtroP)
       
       document.querySelector(".contenido").innerHTML = "";
