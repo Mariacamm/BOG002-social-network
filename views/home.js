@@ -37,13 +37,15 @@ return homeHTML;
 }
 
 
-const arrayPost = []
+
 export function subirPost (){
   const subirPost = document.getElementById("postear");
   subirPost.addEventListener('click', () => {
     const publicacion = document.getElementById("publicacion").value;
+    const arrayPostString = localStorage.getItem('publicaciones')
+    let arrayPost = JSON.parse(arrayPostString)
     // const post = publicacion.value;
-    arrayPost.push({id:arrayPost.length+1,publicacion});
+    arrayPost.push({id:arrayPost.length,publicacion, likes:0});
     localStorage.setItem('publicaciones', JSON.stringify(arrayPost));
     // console.log("hola", publicacion)    
     pintarPost();
@@ -91,13 +93,18 @@ export function pintarPost(){
     let contador = document.createElement('p');
     contador.className = "contadorLikes";
     contenido.appendChild(contador);
-    contador.innerHTML = localStorage.getItem('contador');
     likes.addEventListener('click', () => {
       // console.log("Hola")
-      const contadorActual= localStorage.getItem('contador')
-      localStorage.setItem('contador', parseInt(contadorActual) + 1)
-      localStorage.setItem('contadorActual', JSON.stringify(likes));
-      likePost();
+      let publicaciones = localStorage.getItem('publicaciones')
+      let likeA = JSON.parse(publicaciones);
+      let likesPrueba = likeA.find((item)=>
+      item.id == 0
+      )
+      likesPrueba.likes = likesPrueba.likes+1
+      contador.innerHTML = likesPrueba.likes;
+      console.log(likeA)
+      localStorage.setItem('publicaciones', JSON.stringify(likeA));
+      /* likePost(); */
     })
     
     post.appendChild(contenido);
@@ -125,7 +132,7 @@ export function pintarPost(){
 // }
 
 
-export function eliminarPost (){
+/* export function eliminarPost (){
     const eliminarPost = document.querySelector(".eliminar");
     eliminarPost.addEventListener('click', () => {
       // const postFinal = document.querySelector(".contenido").value;
@@ -136,17 +143,17 @@ export function eliminarPost (){
       })
       /* localStorage.getItem('publicaciones', filtroP) */
       /* localStorage.clear('publicaciones') */
-      console.log(filtroP)
+   /*    console.log(filtroP)
       
-      document.querySelector(".contenido").innerHTML = "";
+      document.querySelector(".contenido").innerHTML = ""; */
       /* alert("elimindado") */
       /* document.getElementById("content").innerHTML = post; */
-    })
-  }
+/*     })
+  } */
 
 // evento likes 
 
-export function likePost () {
+/* export function likePost () {
   const btnLikes= document.querySelector(".btnlikes")
   const contadorLikes= document.querySelector(".contadorLikes")
 
@@ -160,11 +167,11 @@ export function likePost () {
     const contadorActual= localStorage.getItem('contador')
     localStorage.setItem('contador', parseInt(contadorActual) + 1)
     contadorLikes.innerText= localStorage.getItem('contador')
-    btnLikes.push({id:btnLikes.length+1,p});
+    let prueba = {id:btnLikes.length+1};
     localStorage.setItem('contadorLikes', JSON.stringify(btnLikes));
     likePost();
   })
-}
+} */
 
 // Pop UP
 
