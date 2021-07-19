@@ -39,7 +39,7 @@ return homeHTML;
 
 
 export function subirPost (){
-  const subirPost = document.getElementById("postear");
+  const subirPost = document.getElementById("postear").reset;
   subirPost.addEventListener('click', () => {
     const publicacion = document.getElementById("publicacion").value;
     const arrayPostString = localStorage.getItem('publicaciones')
