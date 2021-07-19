@@ -151,7 +151,7 @@
     border-radius: 30px;
 }
 
-.eliminar {
+.eliminar, .editar {
     position: relative;
     border: none;
     padding: 1.3%;

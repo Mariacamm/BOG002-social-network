@@ -84,6 +84,24 @@ export function pintarPost(){
       pintarPost()
     })
 
+    let editar = document.createElement('button');
+    editar.className = "editar";
+    editar.innerHTML = "editar";
+    contenido.appendChild(editar)
+    let tarjeta = document.getElementById("tarjeta");
+    let postPop = document.getElementById("post");
+    editar.addEventListener('click', () => {
+      tarjeta.classList.add('active');
+      postPop.classList.add('active');
+      let obtenerPost = localStorage.getItem('publicaciones');
+      let postArray = JSON.parse(obtenerPost);
+      let filtroP = postArray.filter((item)=>
+        item.id!==p.id
+      )
+      localStorage.setItem('publicaciones', JSON.stringify(filtroP));
+      pintarPost()
+    })
+
     let likes = document.createElement('input');
     likes.setAttribute("type", "image");
     likes.src = 'imagenes/likes.png';
@@ -98,7 +116,7 @@ export function pintarPost(){
       let publicaciones = localStorage.getItem('publicaciones')
       let likeA = JSON.parse(publicaciones);
       let likesPrueba = likeA.find((item)=>
-      item.id == 0
+      item.id == p.id
       )
       likesPrueba.likes = likesPrueba.likes+1
       contador.innerHTML = likesPrueba.likes;
