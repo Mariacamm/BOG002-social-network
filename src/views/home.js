@@ -21,6 +21,7 @@ export function home() {
             <form id="ingreso_post" class="ingreso_post">
               <input type="text" id="publicacion" class="descripcion_form" placeholder="¿Qué estás pensando?">
               <button type="button" class="postear" id="postear">Guardar</button>
+              <button type="button" class="actualizar" id="actualizar">actualizar</button>
             </form>
           </div>
       </div>
@@ -51,6 +52,25 @@ export function subirPost (){
     localStorage.setItem('publicaciones', JSON.stringify(arrayPost));
     // console.log("hola", publicacion)    
     pintarPost();
+    document.getElementById("publicacion").value = "";
+  })
+}
+
+export function actualizarPost() {
+  const actualizarbtn = document.getElementById("actualizar");
+  actualizarbtn.addEventListener('click', () => {
+    let postId = actualizarbtn.getAttribute("post-id");
+    const publicacion = document.getElementById("publicacion").value;
+    const arrayPostString = localStorage.getItem('publicaciones');
+    let arrayPost = JSON.parse(arrayPostString);
+    const arrayActualizado = arrayPost.map((item) =>
+    item.id == postId ? ({ ...item, publicacion }): ({ ...item}))
+    console.log(arrayActualizado)
+    localStorage.setItem('publicaciones', JSON.stringify(arrayActualizado));
+    // console.log("hola", publicacion)    
+    pintarPost();
+    document.getElementById("publicacion").value = "";
+
   })
 }
 
@@ -86,22 +106,28 @@ export function pintarPost(){
       pintarPost()
     })
 
-    // let editar = document.createElement('button');
-    // editar.className = "editar";
-    // editar.innerHTML = "editar";
-    // contenido.appendChild(editar)
-    // let tarjeta = document.getElementById("tarjeta");
-    // let postPop = document.getElementById("post");
-    // editar.addEventListener('click', () => {
-    //   tarjeta.classList.add('active');
-    //   postPop.classList.add('active');
-    //   let obtenerPost = localStorage.getItem('publicaciones');
-    //   let postArray = JSON.parse(obtenerPost);
-    //   let filtroP = postArray.filter((item)=>
-    //     item.id!==p.id
-    //   )
-    //   localStorage.setItem('publicaciones', JSON.stringify(filtroP));
-    // })
+    let editar = document.createElement('button');
+    editar.className = "editar";
+    editar.innerHTML = "editar";
+    contenido.appendChild(editar)
+    let tarjeta = document.getElementById("tarjeta");
+    let postPop = document.getElementById("post");
+    editar.addEventListener('click', () => {
+      tarjeta.classList.add('active');
+      postPop.classList.add('active');
+      let obtenerPost = localStorage.getItem('publicaciones');
+      let postArray = JSON.parse(obtenerPost);
+      let actualPost = postArray.find((item)=>
+        item.id==p.id
+      )
+      document.getElementById("publicacion").value = actualPost.publicacion;
+      // localStorage.setItem('publicaciones', JSON.stringify(actualPost));
+      const actualizarbtn = document.getElementById("actualizar");
+      actualizarbtn.setAttribute("post-id", actualPost.id);
+      // actualizarbtn.addEventListener('click', () => {
+      //   console.log(actualPost)   
+    })
+      
 
     let likes = document.createElement('input');
     likes.setAttribute("type", "image");

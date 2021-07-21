@@ -1,4 +1,4 @@
-import { popUpPost, subirPost, home } from "../views/home.js"
+import { popUpPost, subirPost, home, actualizarPost } from "../views/home.js"
 import { ingreso } from "../views/ingreso.js"
 import { perfil } from "../views/perfil.js"
 import { adelante } from "../main.js"
@@ -32,6 +32,7 @@ export function router(path) {
       document.getElementById("content").innerHTML = textHtml;
       /* setTimeout(()=>{ */
         subirPost();
+        actualizarPost ();
         // eliminarPost();
         // likePost();
         popUpPost();
