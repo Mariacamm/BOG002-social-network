@@ -1,8 +1,8 @@
 // Este es el punto de entrada de tu aplicacion
 
 //import { router } from './routes/router.js';
-import { ingreso } from "../views/ingreso.js";
-import { PATHS } from "./routes/router.js"
+// import { ingreso } from "../views/ingreso.js";
+// import { PATHS } from "./routes/router.js"
 import { router } from "./routes/router.js"
 
 

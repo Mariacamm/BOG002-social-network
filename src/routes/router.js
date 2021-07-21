@@ -1,7 +1,8 @@
-import { popUpPost, subirPost, home } from "../../views/home.js"
-import { ingreso } from "../../views/ingreso.js"
-import { perfil } from "../../views/perfil.js"
+import { popUpPost, subirPost, home } from "../views/home.js"
+import { ingreso } from "../views/ingreso.js"
+import { perfil } from "../views/perfil.js"
 import { adelante } from "../main.js"
+
 
 export const PATHS = {
   ingreso: {
