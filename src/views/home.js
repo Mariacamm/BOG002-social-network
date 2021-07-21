@@ -37,12 +37,14 @@ return homeHTML;
 }
 
 
-
+const primeraP = []
+localStorage.setItem('publicaciones', JSON.stringify(primeraP));
 export function subirPost (){
   const subirPost = document.getElementById("postear");
   subirPost.addEventListener('click', () => {
     const publicacion = document.getElementById("publicacion").value;
-    const arrayPostString = localStorage.getItem('publicaciones')
+    
+    const arrayPostString = localStorage.getItem('publicaciones');
     let arrayPost = JSON.parse(arrayPostString)
     // const post = publicacion.value;
     arrayPost.push({id:arrayPost.length,publicacion, likes:0});
@@ -84,23 +86,22 @@ export function pintarPost(){
       pintarPost()
     })
 
-    let editar = document.createElement('button');
-    editar.className = "editar";
-    editar.innerHTML = "editar";
-    contenido.appendChild(editar)
-    let tarjeta = document.getElementById("tarjeta");
-    let postPop = document.getElementById("post");
-    editar.addEventListener('click', () => {
-      tarjeta.classList.add('active');
-      postPop.classList.add('active');
-      let obtenerPost = localStorage.getItem('publicaciones');
-      let postArray = JSON.parse(obtenerPost);
-      let filtroP = postArray.filter((item)=>
-        item.id!==p.id
-      )
-      localStorage.setItem('publicaciones', JSON.stringify(filtroP));
-      pintarPost()
-    })
+    // let editar = document.createElement('button');
+    // editar.className = "editar";
+    // editar.innerHTML = "editar";
+    // contenido.appendChild(editar)
+    // let tarjeta = document.getElementById("tarjeta");
+    // let postPop = document.getElementById("post");
+    // editar.addEventListener('click', () => {
+    //   tarjeta.classList.add('active');
+    //   postPop.classList.add('active');
+    //   let obtenerPost = localStorage.getItem('publicaciones');
+    //   let postArray = JSON.parse(obtenerPost);
+    //   let filtroP = postArray.filter((item)=>
+    //     item.id!==p.id
+    //   )
+    //   localStorage.setItem('publicaciones', JSON.stringify(filtroP));
+    // })
 
     let likes = document.createElement('input');
     likes.setAttribute("type", "image");
