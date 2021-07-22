@@ -16,13 +16,14 @@ export function home() {
     <section class="subida">
     <div class="tarjeta" id="tarjeta"> 
       <div class="post" id="post">
+       <button type="button" class="boton" id="cerrar">X</button>
         <h1 class="textoSubida">¡Sube tu imagen o video y muestra a la comunidad tu talento!</h1>
           <div class="Formulario">
             <form id="ingreso_post" class="ingreso_post">
               <input type="text" id="publicacion" class="descripcion_form" placeholder="¿Qué estás pensando?">
-              <button type="button" class="postear" id="postear">Guardar</button>
-              <button type="button" class="actualizar" id="actualizar">actualizar</button>
             </form>
+            <button type="button" class="boton" id="postear">Guardar</button>
+            <button type="button" class="boton" id="actualizar">actualizar</button>
           </div>
       </div>
     </div>
@@ -70,7 +71,6 @@ export function actualizarPost() {
     // console.log("hola", publicacion)    
     pintarPost();
     document.getElementById("publicacion").value = "";
-
   })
 }
 
@@ -92,11 +92,11 @@ export function pintarPost(){
     texto.innerHTML = p.publicacion;
     contenido.appendChild(texto)
 
-    let boton = document.createElement('button');
-    boton.className = "eliminar";
-    boton.innerHTML = "eliminar";
-    contenido.appendChild(boton)
-    boton.addEventListener('click', () => {
+    let eliminar = document.createElement('button');
+    eliminar.className = "boton";
+    eliminar.innerHTML = "eliminar";
+    contenido.appendChild(eliminar)
+    eliminar.addEventListener('click', () => {
       let obtenerPost = localStorage.getItem('publicaciones');
       let postArray = JSON.parse(obtenerPost);
       let filtroP = postArray.filter((item)=>
@@ -107,7 +107,7 @@ export function pintarPost(){
     })
 
     let editar = document.createElement('button');
-    editar.className = "editar";
+    editar.className = "boton";
     editar.innerHTML = "editar";
     contenido.appendChild(editar)
     let tarjeta = document.getElementById("tarjeta");
