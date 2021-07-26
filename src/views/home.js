@@ -161,6 +161,7 @@ export function pintarPost(){
       contador.innerHTML = likesPrueba.likes;
       console.log(likeA)
       localStorage.setItem('publicaciones', JSON.stringify(likeA));
+      pintarPost()
       /* likePost(); */
     })
     
