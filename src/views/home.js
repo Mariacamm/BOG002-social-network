@@ -61,6 +61,7 @@ export function actualizarPost() {
   const actualizarbtn = document.getElementById("actualizar");
   actualizarbtn.addEventListener('click', () => {
     let postId = actualizarbtn.getAttribute("post-id");
+    // console.log(postId)
     const publicacion = document.getElementById("publicacion").value;
     const arrayPostString = localStorage.getItem('publicaciones');
     let arrayPost = JSON.parse(arrayPostString);
@@ -128,17 +129,28 @@ export function pintarPost(){
       //   console.log(actualPost)   
     })
       
-
     let likes = document.createElement('input');
     likes.setAttribute("type", "image");
     likes.src = 'imagenes/likes.png';
     likes.className = "btnlikes";
     contenido.appendChild(likes);
 
+    let likesPrueba = document.createElement('i');
+    contenido.appendChild(likesPrueba);
+    
     let contador = document.createElement('p');
     contador.className = "contadorLikes";
+    contador.innerText = p.likes;
     contenido.appendChild(contador);
-    likes.addEventListener('click', () => {
+
+    if (p.likes == 0){
+      likesPrueba.className = "far fa-heart";
+    }
+    else {
+      likesPrueba.className = "fas fa-heart";
+    }
+
+    likesPrueba.addEventListener('click', () => {
       // console.log("Hola")
       let publicaciones = localStorage.getItem('publicaciones')
       let likeA = JSON.parse(publicaciones);
