@@ -128,12 +128,6 @@ export function pintarPost(){
       // actualizarbtn.addEventListener('click', () => {
       //   console.log(actualPost)   
     })
-      
-    let likes = document.createElement('input');
-    likes.setAttribute("type", "image");
-    likes.src = 'imagenes/likes.png';
-    likes.className = "btnlikes";
-    contenido.appendChild(likes);
 
     let likesPrueba = document.createElement('i');
     contenido.appendChild(likesPrueba);
@@ -146,7 +140,7 @@ export function pintarPost(){
     if (p.likes == 0){
       likesPrueba.className = "far fa-heart";
     }
-    else {
+    else{
       likesPrueba.className = "fas fa-heart";
     }
 
@@ -157,9 +151,15 @@ export function pintarPost(){
       let likesPrueba = likeA.find((item)=>
       item.id == p.id
       )
-      likesPrueba.likes = likesPrueba.likes+1
-      contador.innerHTML = likesPrueba.likes;
-      console.log(likeA)
+      if (p.likes == 0){
+        likesPrueba.likes = likesPrueba.likes+1;
+        likesPrueba.className = "far fa-heart";
+      }
+      else {
+        likesPrueba.likes = likesPrueba.likes-1;
+        likesPrueba.className = "fas fa-heart";
+      }
+      // console.log(likeA)
       localStorage.setItem('publicaciones', JSON.stringify(likeA));
       pintarPost()
       /* likePost(); */
