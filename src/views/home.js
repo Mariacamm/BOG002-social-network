@@ -76,8 +76,9 @@ export function actualizarPost() {
 }
 
 export function pintarPost(){
+
   const post = document.getElementById("pruebaPost")
-  post.innerHTML = "TIMELINE:" + ""
+  post.innerHTML = ""
    let obtenerPost = localStorage.getItem('publicaciones')
    let obtenerPostString = JSON.parse(obtenerPost)
   //  document.getElementById("postFinal").innerHTML = obtenerPostString;
@@ -93,42 +94,6 @@ export function pintarPost(){
     texto.innerHTML = p.publicacion;
     contenido.appendChild(texto)
 
-    let eliminar = document.createElement('button');
-    eliminar.className = "boton";
-    eliminar.innerHTML = "eliminar";
-    contenido.appendChild(eliminar)
-    eliminar.addEventListener('click', () => {
-      let obtenerPost = localStorage.getItem('publicaciones');
-      let postArray = JSON.parse(obtenerPost);
-      let filtroP = postArray.filter((item)=>
-        item.id!==p.id
-      )
-      localStorage.setItem('publicaciones', JSON.stringify(filtroP));
-      pintarPost()
-    })
-
-    let editar = document.createElement('button');
-    editar.className = "boton";
-    editar.innerHTML = "editar";
-    contenido.appendChild(editar)
-    let tarjeta = document.getElementById("tarjeta");
-    let postPop = document.getElementById("post");
-    editar.addEventListener('click', () => {
-      tarjeta.classList.add('active');
-      postPop.classList.add('active');
-      let obtenerPost = localStorage.getItem('publicaciones');
-      let postArray = JSON.parse(obtenerPost);
-      let actualPost = postArray.find((item)=>
-        item.id==p.id
-      )
-      document.getElementById("publicacion").value = actualPost.publicacion;
-      // localStorage.setItem('publicaciones', JSON.stringify(actualPost));
-      const actualizarbtn = document.getElementById("actualizar");
-      actualizarbtn.setAttribute("post-id", actualPost.id);
-      // actualizarbtn.addEventListener('click', () => {
-      //   console.log(actualPost)   
-    })
-
     let likesPrueba = document.createElement('i');
     contenido.appendChild(likesPrueba);
     
@@ -139,9 +104,11 @@ export function pintarPost(){
 
     if (p.likes == 0){
       likesPrueba.className = "far fa-heart";
+      likesPrueba.id = "btnLikes"
     }
     else{
       likesPrueba.className = "fas fa-heart";
+      likesPrueba.id = "btnDislikes"
     }
 
     likesPrueba.addEventListener('click', () => {
@@ -164,6 +131,46 @@ export function pintarPost(){
       pintarPost()
       /* likePost(); */
     })
+
+    let eliminar = document.createElement('button');
+    eliminar.className = "boton";
+    eliminar.id="btnEliminar"
+    eliminar.innerHTML = "Eliminar";
+    contenido.appendChild(eliminar)
+    eliminar.addEventListener('click', () => {
+      let obtenerPost = localStorage.getItem('publicaciones');
+      let postArray = JSON.parse(obtenerPost);
+      let filtroP = postArray.filter((item)=>
+        item.id!==p.id
+      )
+      localStorage.setItem('publicaciones', JSON.stringify(filtroP));
+      pintarPost()
+    })
+
+    let editar = document.createElement('button');
+    editar.className = "boton";
+    editar.id="btnEditar"
+    editar.innerHTML = "Editar";
+    contenido.appendChild(editar)
+    let tarjeta = document.getElementById("tarjeta");
+    let postPop = document.getElementById("post");
+    editar.addEventListener('click', () => {
+      tarjeta.classList.add('active');
+      postPop.classList.add('active');
+      let obtenerPost = localStorage.getItem('publicaciones');
+      let postArray = JSON.parse(obtenerPost);
+      let actualPost = postArray.find((item)=>
+        item.id==p.id
+      )
+      document.getElementById("publicacion").value = actualPost.publicacion;
+      // localStorage.setItem('publicaciones', JSON.stringify(actualPost));
+      const actualizarbtn = document.getElementById("actualizar");
+      actualizarbtn.setAttribute("post-id", actualPost.id);
+      // actualizarbtn.addEventListener('click', () => {
+      //   console.log(actualPost)   
+    })
+
+ 
     
     post.appendChild(contenido);
 
