@@ -23,7 +23,7 @@ export function home() {
               <input type="text" id="publicacion" class="descripcion_form" placeholder="¿Qué estás pensando?">
             </form>
             <button type="button" class="boton" id="postear">Guardar</button>
-            <button type="button" class="boton" id="actualizar">actualizar</button>
+            <button type="button" class="boton" id="actualizar">Actualizar</button>
           </div>
       </div>
     </div>
