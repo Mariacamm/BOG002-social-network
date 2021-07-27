@@ -16,7 +16,7 @@ export function home() {
     <section class="subida">
     <div class="tarjeta" id="tarjeta"> 
       <div class="post" id="post">
-       <button type="button" class="boton" id="cerrar">X</button>
+       <i class="far fa-window-close" id="cerrar"></i>
         <h1 class="textoSubida">¡Sube tu imagen o video y muestra a la comunidad tu talento!</h1>
           <div class="Formulario">
             <form id="ingreso_post" class="ingreso_post">
@@ -45,7 +45,6 @@ export function subirPost (){
   const subirPost = document.getElementById("postear");
   subirPost.addEventListener('click', () => {
     const publicacion = document.getElementById("publicacion").value;
-    
     const arrayPostString = localStorage.getItem('publicaciones');
     let arrayPost = JSON.parse(arrayPostString)
     // const post = publicacion.value;
@@ -83,11 +82,17 @@ export function pintarPost(){
    let obtenerPostString = JSON.parse(obtenerPost)
   //  document.getElementById("postFinal").innerHTML = obtenerPostString;
    obtenerPostString.forEach((p) => {
-
     // console.log(p);
  
     let contenido = document.createElement('div');
     contenido.className = "contenido";
+
+    let editar = document.createElement('i');
+    editar.className = "far fa-edit";
+    editar.id="btnEditar";
+    editar.addEventListener("click", actualizarBtn());
+    // editar.innerHTML = "Editar";
+    contenido.appendChild(editar)
 
     let texto = document.createElement('p');
     texto.className = "postFinal";
@@ -95,6 +100,8 @@ export function pintarPost(){
     contenido.appendChild(texto)
 
     let likesPrueba = document.createElement('i');
+    likesPrueba.id = "btnLikes";
+    likesPrueba.className = "btnDislikes"
     contenido.appendChild(likesPrueba);
     
     let contador = document.createElement('p');
@@ -104,11 +111,9 @@ export function pintarPost(){
 
     if (p.likes == 0){
       likesPrueba.className = "far fa-heart";
-      likesPrueba.id = "btnLikes"
     }
     else{
       likesPrueba.className = "fas fa-heart";
-      likesPrueba.id = "btnDislikes"
     }
 
     likesPrueba.addEventListener('click', () => {
@@ -147,11 +152,7 @@ export function pintarPost(){
       pintarPost()
     })
 
-    let editar = document.createElement('button');
-    editar.className = "boton";
-    editar.id="btnEditar"
-    editar.innerHTML = "Editar";
-    contenido.appendChild(editar)
+    // Funcionalidad boton editar
     let tarjeta = document.getElementById("tarjeta");
     let postPop = document.getElementById("post");
     editar.addEventListener('click', () => {
@@ -163,26 +164,57 @@ export function pintarPost(){
         item.id==p.id
       )
       document.getElementById("publicacion").value = actualPost.publicacion;
-      // localStorage.setItem('publicaciones', JSON.stringify(actualPost));
       const actualizarbtn = document.getElementById("actualizar");
       actualizarbtn.setAttribute("post-id", actualPost.id);
       // actualizarbtn.addEventListener('click', () => {
       //   console.log(actualPost)   
     })
 
- 
-    
-    post.appendChild(contenido);
+    post.appendChild(contenido);  
+   })  
+}
 
-    /* eliminarPost();
-    likePost(); */
-  
-   })
-  // console.log(obtenerPostString[2])
-  /* eliminarPost(); */
-  /* likePost(); */
+
+export function guardarBtn (){
+  document.getElementById("postear").style.display = "block";
+    document.getElementById("actualizar").style.display = "none";
+}
+export function actualizarBtn (){
+  document.getElementById("postear").style.display = "none";
+    document.getElementById("actualizar").style.display = "block";
+}
+
+
+export function popUpPost () {
+  const popUpPost = document.getElementById("btnnewPost"),
+  tarjeta = document.getElementById("tarjeta"),
+  postPop = document.getElementById("post"),
+  guardar = document.getElementById("postear"),
+  cerrar = document.getElementById("cerrar"),
+  editar = document.getElementById("btnEditar"),
+  actualizar = document.getElementById("actualizar");
+  // console.log(popUpPost)
+  popUpPost.addEventListener("click", function(){
+    tarjeta.classList.add('active');
+    postPop.classList.add('active');
+    guardarBtn()
+  })
+  guardar.addEventListener("click", function(){
+    tarjeta.classList.remove('active');
+    postPop.classList.remove('active');
+  })
+  cerrar.addEventListener("click", function(){
+    tarjeta.classList.remove('active');
+    postPop.classList.remove('active');
+  })
+  actualizar.addEventListener("click", function(){
+    guardar.classList.remove('active');
+    tarjeta.classList.remove('active');
+    postPop.classList.remove('active');
+  })
   
 }
+    
 
 // export function eliminarPost (){
 //   const eliminarPost = document.querySelector(".eliminar");
@@ -239,26 +271,6 @@ export function pintarPost(){
 } */
 
 // Pop UP
-
-export function popUpPost () {
-
-  const popUpPost = document.getElementById("btnnewPost"),
-  tarjeta = document.getElementById("tarjeta"),
-  postPop = document.getElementById("post"),
-  guardar = document.getElementById("postear");
-  // console.log(popUpPost)
-  popUpPost.addEventListener("click", function(){
-    tarjeta.classList.add('active');
-    postPop.classList.add('active');
-  })
-
-  guardar.addEventListener("click", function(){
-    tarjeta.classList.remove('active');
-    postPop.classList.remove('active');
-  })
-}
-    
-  
 
 
 
